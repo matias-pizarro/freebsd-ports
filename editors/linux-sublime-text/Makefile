@@ -17,7 +17,7 @@ LICENSE_FILE=	${FILESDIR}/LICENSE.txt
 LICENSE_PERMS=	dist-mirror no-dist-sell pkg-mirror no-pkg-sell auto-accept
 
 ONLY_FOR_ARCHS=	amd64
-ONLY_FOR_ARCHS_REASON=	Upstream only supports amd64 and arm64. FreeBSD aarch64 doesn't support Linux X11 ports
+ONLY_FOR_ARCHS_REASON=	Upstream only supports amd64 and aarch64. FreeBSD aarch64 doesn't support Linux X11 ports
 
 USES=		desktop-file-utils gnome linux ssl tar:xz
 INSTALLS_ICONS=	yes
@@ -47,6 +47,6 @@ do-install:
 	cd ${WRKSRC} && ${COPYTREE_SHARE} . ${STAGEDIR}${DATADIR}
 	${INSTALL_SCRIPT} ${WRKDIR}/sublime ${STAGEDIR}${PREFIX}/bin/sublime
 post-install:
-	${STRIP_CMD} ${STAGEDIR}${PREFIX}/share/sublime-text/libcrypto.so.1.1
+	${STRIP_CMD} ${STAGEDIR}${PREFIX}/share/sublime/libcrypto.so.1.1
 
 .include <bsd.port.mk>
